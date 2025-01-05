@@ -1,0 +1,2 @@
+# FaiBot
+Mini ChatGPT Clone
