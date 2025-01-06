@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/FaiBot/static/css/main.a85e7191.css",
-    "main.js": "/FaiBot/static/js/main.c8b6aa92.js",
+    "main.css": "/FaiBot/static/css/main.b8949533.css",
+    "main.js": "/FaiBot/static/js/main.70c67fd1.js",
     "static/js/488.5dc00adb.chunk.js": "/FaiBot/static/js/488.5dc00adb.chunk.js",
     "index.html": "/FaiBot/index.html",
-    "main.a85e7191.css.map": "/FaiBot/static/css/main.a85e7191.css.map",
-    "main.c8b6aa92.js.map": "/FaiBot/static/js/main.c8b6aa92.js.map",
+    "main.b8949533.css.map": "/FaiBot/static/css/main.b8949533.css.map",
+    "main.70c67fd1.js.map": "/FaiBot/static/js/main.70c67fd1.js.map",
     "488.5dc00adb.chunk.js.map": "/FaiBot/static/js/488.5dc00adb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a85e7191.css",
-    "static/js/main.c8b6aa92.js"
+    "static/css/main.b8949533.css",
+    "static/js/main.70c67fd1.js"
   ]
 }
