@@ -5,17 +5,22 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 function App() {
   const [input, setInput] = useState('');
-  const [response, setResponse] = useState('');
+  // const [response, setResponse] = useState('');
   const [messages, setMessages] = useState([]);
   const apiUrl = 'https://ai-server-3x02.onrender.com/api/chat';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!input.trim()) return;
+
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { type: 'user', content: input },
+    ]);
+    setInput('');
+
     try {
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { type: 'user', content: input },
-      ]);
       const result = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -23,45 +28,42 @@ function App() {
         },
         body: JSON.stringify({ input }),
       });
+
       const data = await result.json();
       if (data.response && data.response[0].content.length > 0) {
-        setResponse(data.response[0].content);
+        // setResponse(data.response[0].content);
 
         setMessages((prevMessages) => [
           ...prevMessages,
           { type: 'bot', content: data.response[0].content },
         ]);
 
-        setInput('');
+        // setInput('');
       } else {
         throw new Error('No choices available');
       }
     } catch (error) {
-      setResponse('Failed to load data');
+      // setResponse('Failed to load data');
       setMessages((prevMessages) => [
         ...prevMessages,
         { type: 'bot', content: 'Failed to load data' },
       ]);
-      setInput('');
+      // setInput('');
     }
   };
 
-  // Function to safely parse and render HTML content with custom headers
   const renderMessageContent = (content) => {
-    // Split the content into lines and check for headings
     return content.split('\n').map((line, index) => {
       if (line.startsWith('### ')) {
-        // If the line starts with '###', render it as an <h3> header
         return <h3 key={index}>{line.replace('### ', '')}</h3>;
       } else if (line.includes('<code>')) {
-        // Render code blocks with syntax highlighting
         return (
           <SyntaxHighlighter key={index} language='html' style={docco}>
             {line.replace(/<.*?>/g, '')}
           </SyntaxHighlighter>
         );
       }
-      // For other lines, render as paragraphs
+
       return <p key={index}>{line}</p>;
     });
   };
