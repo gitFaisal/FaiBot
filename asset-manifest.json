@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FaiBot/static/css/main.a85e7191.css",
+    "main.js": "/FaiBot/static/js/main.de7b6ed0.js",
+    "static/js/488.5dc00adb.chunk.js": "/FaiBot/static/js/488.5dc00adb.chunk.js",
+    "index.html": "/FaiBot/index.html",
+    "main.a85e7191.css.map": "/FaiBot/static/css/main.a85e7191.css.map",
+    "main.de7b6ed0.js.map": "/FaiBot/static/js/main.de7b6ed0.js.map",
+    "488.5dc00adb.chunk.js.map": "/FaiBot/static/js/488.5dc00adb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a85e7191.css",
+    "static/js/main.de7b6ed0.js"
+  ]
+}
