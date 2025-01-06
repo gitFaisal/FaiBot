@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Navbar from './comonents/navbar/Navbar.jsx';
 
 function App() {
   const [input, setInput] = useState('');
-  // const [response, setResponse] = useState('');
   const [messages, setMessages] = useState([]);
   const apiUrl = 'https://ai-server-3x02.onrender.com/api/chat';
 
@@ -31,24 +31,18 @@ function App() {
 
       const data = await result.json();
       if (data.response && data.response[0].content.length > 0) {
-        // setResponse(data.response[0].content);
-
         setMessages((prevMessages) => [
           ...prevMessages,
           { type: 'bot', content: data.response[0].content },
         ]);
-
-        // setInput('');
       } else {
         throw new Error('No choices available');
       }
     } catch (error) {
-      // setResponse('Failed to load data');
       setMessages((prevMessages) => [
         ...prevMessages,
         { type: 'bot', content: 'Failed to load data' },
       ]);
-      // setInput('');
     }
   };
 
@@ -70,12 +64,14 @@ function App() {
 
   return (
     <div className='App'>
+      <div className='navbar'>
+        <Navbar />
+      </div>
       <div className='chat-container'>
         <div className='messages'>
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.type}`}>
               {message.type === 'bot' ? (
-                // Render safe HTML content using the renderMessageContent function
                 <div>{renderMessageContent(message.content)}</div>
               ) : (
                 <p>{message.content}</p>

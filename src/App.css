@@ -7,9 +7,23 @@ body {
 
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar-brand {
+  transition: text-shadow 0.6s ease-out, color 0.6s ease-out; /* Slightly slower easing for a smoother effect */
+}
+
+.navbar-brand:hover {
+  text-shadow: 0 0 3px #00ff00, 0 0 6px #00ff00, 0 0 10px #00ff00; /* Reduced green glow effect */
+  color: #a0e9a0; /* Set the text color to a lighter green */
 }
 
 .chat-container {
