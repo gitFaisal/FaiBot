@@ -7,6 +7,7 @@ function App() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');
   const [messages, setMessages] = useState([]);
+  const apiUrl = 'https://ai-server-3x02.onrender.com/api/chat';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ function App() {
         ...prevMessages,
         { type: 'user', content: input },
       ]);
-      const result = await fetch('/api/chat', {
+      const result = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
